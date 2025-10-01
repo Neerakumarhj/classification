@@ -1,34 +1,28 @@
 # 🎵 Spotify Genre Classification
 
-## 📌 Project Overview
-This repository contains my work for the **CS985/6 Spotify Classification Problem 2025**.  
-The goal is to build a machine learning model that predicts the **genre of a song** (`top genre`) from its musical attributes.
+This repo has my coursework for the **CS985/6 Spotify Classification Problem 2025**.  
+The task was to build a model that predicts the **genre of a song** based on its features like bpm, energy, danceability and so on.  
 
-- **Type**: Multi-class classification  
-- **Target**: `top genre`  
-- **Features**: 13 numerical song features (e.g., bpm, energy, danceability)  
-- **Evaluation Metric**: Accuracy  
-- **Output**: CSV file with `Id` and predicted `top genre`  
-
-The dataset is a slightly modified version of [Spotify Past Decades Songs 50s–10s](https://www.kaggle.com/cnic92/spotify-past-decades-songs-50s10s):  
-- Column `Number` renamed to `Id`  
-- Column `top genre` moved to the last position  
+The dataset is a modified version of a Spotify dataset from Kaggle. The only changes were:  
+- `Number` column renamed to `Id`  
+- `top genre` column moved to the end  
 
 ---
 
-## ⚙️ Workflow
-1. **Data Loading** – Imported training and test datasets.  
-2. **Data Cleaning** – Removed irrelevant columns, handled missing values.  
-3. **Encoding** – Encoded `top genre` labels into numbers.  
-4. **EDA** – Genre distribution and correlation heatmap.  
-5. **Model Training** – Used **LightGBM** classifier.  
-6. **Evaluation** – Checked validation accuracy and simple observations.  
-7. **Final Submission** – Trained on all data and saved predictions to `spotify_submission.csv`.  
+## What I did
+- Cleaned the data (removed Id/title/artist, handled missing values)  
+- Did some quick EDA (genre counts, feature correlations)  
+- Encoded the target labels into numbers  
+- Trained a LightGBM model with a simple train/validation split  
+- Finally, trained on the whole dataset and created predictions for the test set  
 
 ---
 
-## 📊 Results
-- The model achieved a reasonable validation accuracy.  
-- Rare genres are harder to predict due to class imbalance.  
-- Final predictions are in:
+## Output
+The final predictions are saved in **spotify_submission.csv** with this format:
 
+```csv
+Id,top genre
+123,rock
+456,pop
+789,disco
